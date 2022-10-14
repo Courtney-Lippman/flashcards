@@ -1,7 +1,7 @@
 const Turn = require("./Turn");
 
 class Round {
-    
+
     constructor(deck) {
         this.deck = deck.cards
         this.turns = 0
