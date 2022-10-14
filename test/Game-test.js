@@ -5,40 +5,52 @@ const Deck = require('../src/Deck.js');
 const Turn = require('../src/Turn.js');
 const Round = require('../src/Round.js');
 const Game = require('../src/Game.js');
-const prototypeData = require('../src/data.js');
+const data = require('../src/data.js');
+const prototypeQuestions = data.prototypeData
 
 describe('Game', function() {
     const game = new Game();
 
+    this.beforeEach(() => {
+        game.start()//prototypeData is already a global const in Game.js I think, see line 2
+    })
+
     it.skip('should have a start method that creates cards', () => {
-        //Create Card object instances
-        //take the data.js which is an array of objects. The objects have id, question, answers, and correctAnswer keys
-        // Card     constructor(id, question, answers, correctAnswer)
-        //need to put properties from data.js array of objects into new Card instance as arguments
 
-        //iterate through data.js array using .forEach()
-        //in the forEach constructor we want to grab all the properties and assign them to the new Card arguments
+/*
+        Initialize start method
+            -takes in array called prototypeData
+            for each element i of prototypeData
+                a = createCard(i)  
+                cardArray.push(a)
+            End Loop
+        
+        createCard(id, q, answer, correct)
 
-        //we will get back an array of cards 
+        
+        */
        
-       expect(this.cardArray.length).to.equal(prototypeData.length) 
-       expect(this.cardArray[0]).to.equal(prototypeData[0])
+       expect(this.cardArray.length).to.equal(prototypeQuestions.length);
 
 
         
     });
 
-    it.skip('should have a start method that puts cards in a deck', ()=> {
-            //put cards in deck object
-            // create new deck instance
-            //pass in the made cardArray as an argument
-            //check by deck.cards.length === cardArray.length
-            expect(this.deck.cards.length).to.equal(this.cardArray.length)
+    it.skip('should have a start method that puts cards in a Deck', ()=> {
+            /*
+                Create one new instance of Deck class (make its own method- createDeck())
+                    -takes in cardArray
+                cardArray set as property this.cards in Deck instance
+            */
+            expect(deck.cards.length).to.equal(this.cardArray.length)
     });
 
     it.skip('should have a start method that creates a new round using the deck', ()=> {
-        //create a new Round instance passing in the newly created Deck instance as an argument
-        //game.round.deck === game.deck
+        /*
+        Create one new Round class instance (make its own method createRound())
+            -takes in the created Deck instance
+        */
+       expect(game.round).to.deep.equal()
     });
 
     it.skip('should keep track of the currentRound', () => {
